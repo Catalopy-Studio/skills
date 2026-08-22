@@ -1,0 +1,26 @@
+# Existing local source/runtime material; the curated repository content is
+# kept under skills/ and the root metadata files.
+node_modules/
+.agent/
+.agents/
+.claude/
+.codex/
+.cursor/
+.gemini/
+.github/
+.grok/
+.hermes/
+.impeccable/
+.kiro/
+.opencode/
+.pi/
+.qoder/
+.rovodev/
+.trae/
+.trae-cn/
+.vibe/
+package.json
+package-lock.json
+skills-lock.json
+.reports/
+*.local.*
