@@ -1,0 +1,52 @@
+# Five advisor seats are always convened for a full council. Domain profiles are
+# phase overlays; thinking lenses create intentional tension between advisors.
+
+advisor_seats:
+  contrarian:
+    purpose: Find fatal flaws, missing assumptions, unsafe defaults, and plausible failure modes.
+    domain_overlays: [security-governance, data-ai-contrarian]
+    instruction: Assume the proposal has a hidden failure and prove or disprove that assumption with evidence.
+  first-principles:
+    purpose: Reconstruct the actual problem, invariants, success criteria, and simplest valid solution.
+    domain_overlays: [architecture]
+    instruction: Strip away implementation fashion and test whether the phase is solving the right problem.
+  expansionist:
+    purpose: Identify durable upside, leverage, adjacent value, and opportunities the narrow plan undervalues.
+    domain_overlays: [product-operator]
+    instruction: Look for meaningful upside, but label speculation separately from evidence and never waive blockers.
+  outsider:
+    purpose: Detect confusing language, hidden context, adoption friction, accessibility gaps, and curse-of-knowledge assumptions.
+    domain_overlays: [product-operator, security-governance]
+    instruction: Judge only what is observable in the packet and repository; flag anything that requires insider knowledge.
+  executor:
+    purpose: Test whether the work can operate, ship, recover, and be verified through concrete next actions.
+    domain_overlays: [reliability-testing]
+    instruction: Convert concerns into executable checks, ownership, rollback, and the fastest safe path to completion.
+
+domain_profiles:
+  architecture:
+    purpose: Review boundaries, ownership, contracts, maintainability, and migration paths.
+    questions: [Are responsibilities and dependencies explicit?, Do APIs and data ownership match invariants?, Is the solution simpler than viable alternatives?]
+  product-operator:
+    purpose: Review user value, workflow clarity, adoption friction, accessibility, and operational fit.
+    questions: [Can the intended user complete the task reliably?, Are labels states and recovery paths understandable?, Is approved scope preserved?]
+  security-governance:
+    purpose: Review authentication, authorization, privacy, provenance, secrets, integrity, and auditability.
+    questions: [Can a user cross a trust or tenant boundary?, Can untrusted input alter protected state?, Are sensitive actions attributable and reversible?]
+  reliability-testing:
+    purpose: Review failure modes, concurrency, retries, observability, tests, rollback, and recovery.
+    questions: [What happens on timeout retry duplicate delivery or partial failure?, What evidence proves behavior?, Can the change be safely recovered?]
+  data-ai-contrarian:
+    purpose: Review data quality, model evidence, false positives, evaluation gaps, and simpler alternatives.
+    questions: [Are inputs versions scores and provenance explicit?, What plausible result could be wrong?, Is AI complexity necessary?]
+
+phase_profiles:
+  council-bootstrap: [architecture, reliability-testing, security-governance]
+  contracts: [architecture, product-operator, data-ai-contrarian]
+  foundation: [architecture, security-governance, reliability-testing]
+  frontend: [product-operator, security-governance, reliability-testing]
+  ingestion: [data-ai-contrarian, security-governance, reliability-testing]
+  matching: [data-ai-contrarian, security-governance, architecture]
+  harmonization: [security-governance, product-operator, architecture, reliability-testing, data-ai-contrarian]
+  hardening: [security-governance, reliability-testing, product-operator]
+  demo: [product-operator, reliability-testing, data-ai-contrarian]

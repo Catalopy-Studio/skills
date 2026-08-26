@@ -1,0 +1,4 @@
+interface:
+  display_name: "Council"
+  short_description: "Run five-advisor council reviews with a separate chairman"
+  default_prompt: "Use $council to convene five independent advisors, five anonymous peer reviewers, and a separate chairman; preserve dissent and return GO, GO_WITH_FIXES, or HOLD with evidence."
